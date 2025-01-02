@@ -8,7 +8,7 @@
   "properties": {
     "$schema": {
       "type": "string",
-      "description": "path to the JSON Schema to use for the validation of the JSON file describing the film"
+      "description": "path to the JSON Schema to use for the validation of the JSON file describing the review"
     },
     "filmId": {
       "type": "integer",

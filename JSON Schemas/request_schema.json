@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id" : "http://www.my-schema.com/request_schema.json",
+    "title": "Request",
+    "description": "JSON Schema for modify request data structures",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "$schema": {
+        "type": "string",
+        "description": "path to the JSON Schema to use for the validation of the JSON file describing the update request"
+      },
+      "filmId": {
+        "type": "integer",
+        "description": "unique identifier of the film for which a update review request has been issued"
+      },
+      "reviewerId": {
+        "type": "integer",
+        "description": "unique identifier of the the user who has send the update review request"
+      },
+      "deadline": {
+        "type": "string",
+        "format": "date-time",
+        "description": "the date-time-timezone when the request for update the review will be expired"
+      },
+      "status": {
+        "type": "string",
+        "description": "the status of the request",
+        "enum": ["pending", "accepted", "rejected"],
+        "default": "pending"
+      }
+    },
+    "required": ["filmId", "reviewerId", "deadline"]
+  }
+  
