@@ -9,3 +9,4 @@ The structure of this repository is the following:
 Modifiche per esame:
 - aggiunto schema nei [JSON Schemas](/JSON%20Schemas/request_schema.json) e nel [Film Manager Implementation](/Film%20Manager%20Implementation/json_schemas/request_schema.json)
 - aggiunti [validators](./JSON%20Schemas/schema_validator/request_validator) per lo schema JSON
+- aggiornato [openapi](./Film%20Manager%20Implementation/api/openapi.json), da rivedere/modificare

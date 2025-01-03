@@ -57,6 +57,10 @@
       "description": "the review issued to the user with ID reviewerId for the public film with ID filmId"
     },
     {
+      "name" : "api/films/public/requests",
+      "description": "the update review requests issued from the users"
+    },
+    {
       "name": "api/films/public/assignments",
       "description": "the assignments of review invitations to users"
     },
@@ -960,6 +964,56 @@
         }
       }
     },
+    "/api/films/public/requests": {
+      "post": {
+        "tags": [
+          "api/films/public/requests"
+        ],
+        "security": [
+          {
+            "cookieAuth": []
+          }
+        ],
+        "summary": "Request a permission for update of a review",
+        "description": "The user who wants to update a review sends a request to the owner of the film. The request contains the ID of the film, the ID of the review to be updated and the expiration date. The owner can accept or reject the request. This operation requires authentication.",
+        "operationId": "request",
+        "requestBody": {
+          "description": "The request for the update of a review",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Request"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {}
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {}
+          }
+        }
+      }
+    },
     "/api/users": {
       "get": {
         "tags": [
@@ -1115,6 +1169,11 @@
           "reviewAssignments": {
             "type": "string",
             "description": "URI to access the api/films/public/assignments endpoint",
+            "format": "uri"
+          },
+          "updaterequests": {
+            "type": "string",
+            "description": "URI to access the api/films/public/requests endpoint",
             "format": "uri"
           },
           "users": {
@@ -1349,6 +1408,81 @@
               "$ref": "#/components/schemas/Review"
             },
             "description": "the reviews of the current page"
+          },
+          "next": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": [
+          "totalPages"
+        ]
+      },
+      "Request": {
+        "description": "schema for modify request data structures",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "$schema": {
+            "type": "string",
+            "description": "path to the JSON Schema to use for the validation of the JSON file describing the update request"
+          },
+          "filmId": {
+            "type": "integer",
+            "description": "unique identifier of the film for which a update review request has been issued"
+          },
+          "reviewerId": {
+            "type": "integer",
+            "description": "unique identifier of the the user who has send the update review request"
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time",
+            "description": "the date-time-timezone when the request for update the review will be expired"
+          },
+          "status": {
+            "type": "string",
+            "description": "the status of the request",
+            "enum": ["pending", "accepted", "rejected"],
+            "default": "pending"
+          }
+        },
+        "required": [
+          "filmId",
+          "reviewerId",
+          "deadline"
+        ]
+      },
+      "Requests": {
+        "description": "schema for update requests data structures",
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "$schema": {
+            "type": "string",
+            "description": "path to the JSON Schema to use for the validation of the JSON data structure describing the update request reviews"
+          },
+          "totalPages": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "total number of pages"
+          },
+          "currentPage": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "the page included in this object"
+          },
+          "totalItems": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "the total number of items in the current page"
+          },
+          "films": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Request"
+            },
+            "description": "the requests of the current page"
           },
           "next": {
             "type": "string",
