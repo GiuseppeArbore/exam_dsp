@@ -1,7 +1,0 @@
-{
-    "$schema": "../../request_schema.json",
-    "filmId": 2,
-    "reviewerId": 1,
-    "deadline": "2020-12-31T23:59:59+01:00",
-    "status": "accepted"
-}

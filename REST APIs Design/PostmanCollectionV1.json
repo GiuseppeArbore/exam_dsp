@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "ec997040-242a-48d0-8ccd-60fcca80a035",
+		"name": "Dsp Exam Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "35091793"
+	},
+	"item": [
+		{
+			"name": "user 5",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"beatrice.golden@polito.it\",\r\n    \"password\": \"seagulls\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/users/authenticator"
+			},
+			"response": []
+		},
+		{
+			"name": "Film manager",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/"
+			},
+			"response": []
+		},
+		{
+			"name": "ier - deadline in the past",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deadline\" : \"2019-12-31T08:43Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/9/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "ier - deadline missing",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/7/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "ier - review not exist",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deadline\" : \"2026-12-31T08:43Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/6/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "ier - review not completed",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deadline\" : \"2026-12-31T08:43Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/10/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "ier - user not reviewer",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deadline\" : \"2026-12-31T08:43Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/2/reviews/2/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "ier - another pending yet",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deadline\" : \"2025-08-31T08:43Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/3/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "ier - wrong format",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deadline\" : \"2025-08-31T08Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/3/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "issue edit request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deadline\" : \"2025-11-13T18:09+01:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/9/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "edit requests for a review",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/films/public/9/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "specific edit request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/films/public/9/reviews/5/editRequests/1"
+			},
+			"response": []
+		},
+		{
+			"name": "delete editRequest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:3001/api/films/public/2/reviews/5/editRequests/5"
+			},
+			"response": []
+		},
+		{
+			"name": "der - not existing",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:3001/api/films/public/2/reviews/5/editRequests/5"
+			},
+			"response": []
+		},
+		{
+			"name": "all the edit request sent",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/films/public/reviews/editRequests/sent"
+			},
+			"response": []
+		},
+		{
+			"name": "edit a completed review",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filmId\" : 9,\r\n    \"reviewerId\" : 5,\r\n    \"completed\" : 1,\r\n    \"reviewDate\" : \"2025-01-10\",\r\n    \"rating\" : 7,\r\n    \"review\": \"Wow, what a Great film\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/9/reviews/5"
+			},
+			"response": []
+		},
+		{
+			"name": "edit a film approved",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filmId\" : 5,\r\n    \"reviewerId\" : 5,\r\n    \"completed\" : 1,\r\n    \"reviewDate\" : \"2025-01-10\",\r\n    \"rating\" : 8,\r\n    \"review\": \"Wow, i'm really scared now...\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/5/reviews/5"
+			},
+			"response": []
+		},
+		{
+			"name": "user 1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user.dsp@polito.it\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/users/authenticator"
+			},
+			"response": []
+		},
+		{
+			"name": "pending edit requests received",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/films/public/reviews/editRequests/received"
+			},
+			"response": []
+		},
+		{
+			"name": "accept edi request 6",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accepted\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/6/reviews/2/editRequests/6"
+			},
+			"response": []
+		},
+		{
+			"name": "reject edit request 7",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accepted\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/6/reviews/3/editRequests/7"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,8 @@
+{
+    "$schema": "../editRequest_schema.json",
+    "id": 4,
+    "filmId": 2,
+    "reviewerId": 1,
+    "deadline": "2020-12-31T23:59-05:00",
+    "status": "accepted"
+}

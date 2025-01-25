@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "38011da5-a9ea-4c97-9148-7150a50722d6",
+		"name": "Dsp Exam Collection min",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "35091793"
+	},
+	"item": [
+		{
+			"name": "user 5",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"beatrice.golden@polito.it\",\r\n    \"password\": \"seagulls\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/users/authenticator"
+			},
+			"response": []
+		},
+		{
+			"name": "Film manager",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/"
+			},
+			"response": []
+		},
+		{
+			"name": "issue edit request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"deadline\" : \"2025-11-13T18:09+01:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/9/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "edit requests for a review",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/films/public/9/reviews/5/editRequests"
+			},
+			"response": []
+		},
+		{
+			"name": "specific edit request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/films/public/9/reviews/5/editRequests/1"
+			},
+			"response": []
+		},
+		{
+			"name": "delete editRequest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:3001/api/films/public/2/reviews/5/editRequests/5"
+			},
+			"response": []
+		},
+		{
+			"name": "all the edit request sent",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/films/public/reviews/editRequests/sent"
+			},
+			"response": []
+		},
+		{
+			"name": "user 1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user.dsp@polito.it\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/users/authenticator"
+			},
+			"response": []
+		},
+		{
+			"name": "pending edit requests received",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3001/api/films/public/reviews/editRequests/received"
+			},
+			"response": []
+		},
+		{
+			"name": "accept edi request 6",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accepted\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/6/reviews/2/editRequests/6"
+			},
+			"response": []
+		},
+		{
+			"name": "reject edit request 7",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accepted\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3001/api/films/public/6/reviews/3/editRequests/7"
+			},
+			"response": []
+		}
+	]
+}
